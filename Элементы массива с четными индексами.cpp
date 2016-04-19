@@ -7,13 +7,20 @@
 using namespace std;
 
 int main() {
-	int a, b, c;
-	cin >> a;
-	if (a < 100 && a>9) {
-		cout << (a / 10) % 10 << " " << a % 10;
+	int n;
+	cin >> n;
+	vector <int> a;
+	//считывание
+	for (int i = 0; i < n; i++) {
+		int temp;
+		cin >> temp;
+		if (i % 2 == 0) {
+			a.push_back(temp);
+		}
 	}
-	else if (a > 99 && a < 1000) {
-		cout <<(a/100)%10<< " " << (a / 10) % 10 << " " << a % 10;
+	//обработка и вывод
+	for (int i = a.size() - 1; i >= 0; i--) {
+		cout << a[i] << " ";
 	}
 	return 0;
 }
