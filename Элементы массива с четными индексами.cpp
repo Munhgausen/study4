@@ -1,3 +1,5 @@
+/* Выводит все элементы массива с четными индексами (то есть A[0], A[2], A[4], ...).*/
+
 #include <iostream>
 #include <cmath>
 #include <iomanip>
