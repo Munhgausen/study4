@@ -1,0 +1,23 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main() {
+	int n;
+	int plus=0;
+	cin >> n;
+	vector <int> a;
+	//считывание
+	for (int i = 0; i < n; i++) {
+		int temp;
+		cin >> temp;
+		if (temp > 0) {
+			a.push_back(temp);
+			plus = plus + 1;
+		}
+
+	}
+	cout << plus;
+	return 0;
+}
