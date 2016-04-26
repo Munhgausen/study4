@@ -1,0 +1,30 @@
+/*Дан массив чисел. Если в нем есть два соседних элемента одного знака, выведите эти числа. 
+Если соседних элементов одного знака нет - не выводите ничего. 
+Если таких пар соседей несколько - выведите первую пару. */
+
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main() {
+	int n;
+	int plus=0;
+	cin >> n;
+	vector <int> a;
+	//считывание
+	for (int i = 0; i < n; i++) {
+		int temp;
+		cin >> temp;
+		a.push_back(temp);
+		if (plus>0 && temp>0 || plus<0 && temp<0) {
+			cout << plus<< " "<< temp;
+			plus = temp;
+            break;
+		}
+		else
+			plus = temp;
+
+	}
+	return 0;
+}
