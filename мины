@@ -1,0 +1,52 @@
+#include <iostream>
+#include <vector>
+#include <cmath>
+using namespace std;
+
+int main() {
+	int n,m; //n-кол-во строк,m-кол-во столбцов
+	cin >> n>>m;
+	//чтение
+	int mines[102][102];
+	//заполняем поле нулями
+	for (int i = 0; i <= n+1; i++) {
+		for (int j = 0; j <= m+1; j++) {
+			mines[i][j] = 0;
+		}
+	}
+	for (int i = 1; i <= n; i++) { //перебираем строки
+		for (int j = 1; j <= m; j++) { //перебираем столбцы
+			cin >> mines[i][j];
+
+		}
+	}
+	//заполнение поля
+	int ans[102][102];
+	for (int i = 1; i <= n; i++) { //перебираем строки
+		for (int j = 1; j <= m; j++) { //перебираем столбцы
+			//координаты соседей(сдвиги)
+			int dx[8] = {1,1,1,0,0,-1,-1,-1};
+			int dy[8] = {-1,0,1,-1,1,-1,0,1};
+			int temp = 0; //считает кол-во мин в соседних клетках
+			//перебор соседей
+			for (int k = 0; k < 8; k++) {
+				temp += mines[i + dy[k]][i + dx[k]];
+				ans[i][j] = temp;
+			}
+
+		}
+	}
+	// вывод
+	for (int i = 1; i <= n; i++) {
+		for (int j = 1; j <= m; j++) {
+			if (mines[i][j] == 1) {
+				cout << "*";
+			}
+			else {
+				cout << ans[i][j];
+			}
+		}
+		cout << endl;
+	}
+	return 0;
+	}
