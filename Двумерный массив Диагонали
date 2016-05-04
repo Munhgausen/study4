@@ -1,0 +1,96 @@
+/*
+Дан квадратный двумерный массив размером n × n и число k. Выведите элементы k-й по счету диагонали ниже главной диагонали 
+(т.е. если k = 1, то нужно вывести элементы первой диагонали, лежащей ниже главной, если k = 2, то второй диагонали и т.д.).
+
+Значение k может быть отрицательным, например, если k = −1, то нужно вывести значение первой диагонали лежащей выше главной. 
+Если k = 0, то нужно вывести элементы главной диагонали.
+
+Программа получает на вход число n, не превосходящие 10, затем массив размером n × n, затем число k.
+Sample Input 1:
+4
+1 2 3 4
+5 6 7 8
+0 1 2 3
+4 5 6 7
+1
+Sample Output 1:
+5 1 6
+
+*/
+
+#include <iostream>
+#include <vector>
+#include <cmath>
+using namespace std;
+
+int main() {
+	setlocale(LC_ALL, "russian");
+	int n, m; //n-кол-во строк,m-кол-во столбцов
+	cin >> n;
+	//чтение
+	int mines[15][15];
+	//заполняем поле числами
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n; j++) {
+			cin >> mines[i][j];
+		}
+	}
+	//спрашиваем номер диагонали
+	int diag = 0;
+	cin >> diag;
+
+	//ищем нужную диагональ
+
+	vector <int> a;
+	//Первая диагональ
+	if (diag == 0) {
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < n; j++) {
+				if (i == j) {
+					a.push_back(mines[i][j]);
+				}
+			}
+		}
+	}
+	//положительные диагонали
+	int x = 0;
+	if (diag > 0) {
+		for (int i = diag; i < n; i++) {
+			for (int j = 0; j < n; j++) {
+				if (j == x) {
+					a.push_back(mines[i][j]);
+					x = x + 1;
+					break;
+				}
+			}
+		}
+	}
+	//отрицательные диагонали
+	else if (diag < 0) {
+		diag = diag*(-1);
+		x = diag;
+		for (int i = 0; i < n-1; i++) {
+			for (int j = diag; j < n; j++) {
+				if (j == x) {
+					a.push_back(mines[i][j]);
+					x = x + 1;
+					break;
+				}
+			}
+		}
+	}
+	//разворачиваем массив
+	vector <int> temp;
+	temp = a;
+	vector <int> temp1;
+	for (int i = temp.size() - 1; i >= 0; i--) {
+		temp1.push_back(temp[i]);
+	}
+	
+	
+	//выводим
+	for (int i = temp1.size() - 1; i >= 0; i--) {
+		cout << temp1[i] << " ";
+	}
+	return 0;
+}
