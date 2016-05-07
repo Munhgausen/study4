@@ -1,0 +1,17 @@
+/*Сумма чисел через рекурсию */
+#include <iostream>
+using namespace std;
+
+int rec(){
+	int a;
+	cin >> a;
+	if (a == 0) return 0;
+	else return rec() + a;
+}
+
+int main() {
+
+	cout<< rec();
+
+	return 0;
+}
