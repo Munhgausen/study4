@@ -1,0 +1,22 @@
+#include <iostream>
+#include<string>
+using namespace std;
+
+int main() {
+	string a;
+	char c;
+	cin >> a;
+
+	string b="";
+	for (auto c : a) {
+		if (c >= 'a'&& c <= 'z') {
+			int al_num = c - 'a';
+			b += 'A' +al_num;
+		}
+		else {
+			b += c;
+		}
+	}
+	cout << b;
+	return 0;
+}
