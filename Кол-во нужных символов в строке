@@ -1,0 +1,20 @@
+#include <iostream>
+#include<string>
+using namespace std;
+
+int main() {
+	string a;
+	getline(cin, a);
+	int x=0; //cчитает кол-во слов
+	for (auto n : a) {
+		//if (a.find(' ') != -1)
+		if (n == ' ') {
+			{
+				x = x + 1;
+			}
+
+		}
+	}
+		cout << x+1;
+	return 0;
+}
