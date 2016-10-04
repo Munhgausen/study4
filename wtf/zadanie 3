@@ -1,0 +1,46 @@
+#include <iostream>
+
+using namespace std;
+
+void array_mass(int **A, int);
+int srednArifm(int **A, int);
+void dropMatz(int **A, int);
+
+int main() {
+	int x;
+	cout << "Enter M";
+	cin >> x;
+	int **A = new int*[x]; //x строк
+	for (int i = 0; i < x; i++)
+		A[i] = new int[x]; //x столбцов
+
+	array_mass(A, x);
+	double average = srednArifm(A, x); //average-среднее
+	cout << ("srednee arifmitichescoe=")<<average;
+	dropMatz(A, x);
+	return 0;
+}
+
+void array_mass(int **A, int x) {
+	for (int i = 0; i < x; i++) {
+		for (int j = 0; j < x; j++) {
+			cin >> A[i][j];
+		}
+	}
+}
+
+int srednArifm(int **A, int x) {
+	int summ = 0;
+	for (int i = 0; i < x; i++) {
+			summ += A[i][i];	
+	}
+	double sredn = summ / x;
+	return sredn;
+}
+
+void dropMatz(int **A, int x) {
+	for (int i = 0; i < x; i++) {
+		delete A[i];
+	}
+delete A;
+}
