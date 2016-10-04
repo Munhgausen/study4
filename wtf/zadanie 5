@@ -16,6 +16,9 @@ int main() {
 
 	array_mass(A, x);
 	double average = srednArifm(A, x);
+	if (average == 0)
+		cout << "net chetnih chisel";
+	else
 	cout << ("otvet=")<<average;
 	dropMatz(A, x);
 	return 0;
