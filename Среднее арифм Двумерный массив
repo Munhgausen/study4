@@ -15,8 +15,8 @@ int main() {
 		A[i] = new int[x]; //x столбцов
 
 	array_mass(A, x);
-	double sum = srednArifm(A, x);
-	cout << ("srednee arifmitichescoe=")<<sum;
+	double average = srednArifm(A, x); //average-среднее
+	cout << ("srednee arifmitichescoe=")<<average;
 	dropMatz(A, x);
 	return 0;
 }
