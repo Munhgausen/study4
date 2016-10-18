@@ -51,6 +51,7 @@ int PrintSp(item *head1, item *head2, int n)
 {
 	int summ = 0;
 	int x=0; //
+	int y = 0;
 	item *i;
 	item *j;
 	for (i = head1; i != NULL; i = i->next) {
@@ -61,10 +62,13 @@ int PrintSp(item *head1, item *head2, int n)
 			if (x == n&&x != 0) {
 				printf("%d", i->a);
 				summ++;
+				y += i->a;
 			}
 		}
 		x = 0;
 	}
+	double sredneeArifm = y / summ;
+	printf("Srednee arimiticheskoe:\n %f", sredneeArifm);
 	return summ;
 }
 
